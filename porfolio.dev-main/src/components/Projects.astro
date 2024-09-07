@@ -1,0 +1,161 @@
+---
+import GitHub from "./icons/GitHub.astro";
+import NextJS from "./icons/NextJS.astro";
+import Tailwind from "./icons/Tailwind.astro";
+import Link from "./icons/Link.astro";
+import LinkButton from "./LinkButton.astro";
+import LogoAstro from "./icons/LogoAstro.astro";
+import Js from "./icons/Js.astro";
+import LogoHtml from "./icons/LogoHtml.astro";
+import LogoCss from "./icons/LogoCss.astro";
+import LogoPhp from "./icons/LogoPhp.astro";
+import LogoLaravel from "./icons/LogoLaravel.astro";
+import LogoBotstrap from "./icons/LogoBotstrap.astro";
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  ASTRO: {
+    name: "Astro",
+    class: "bg-[#0000] text-white",
+    icon: LogoAstro,
+  },
+
+  JS: {
+    name: "JavaScript",
+    class: "bg-[#f5de19] text-black",
+    icon: Js,
+  },
+
+  HTML: {
+    name: "HTML",
+    class: "bg-[#E44D26] text-white",
+    icon: LogoHtml,
+  },
+
+  CSS: {
+    name: "CSS",
+    class: "bg-[#1172B8] text-white",
+    icon: LogoCss,
+  },
+  PHP: {
+    name: "PHP",
+    class: "bg-[#3a3654] text-white",
+    icon: LogoPhp,
+  },
+  LARAVEL: {
+    name: "Laravel",
+    class: "bg-[#000] text-white",
+    icon: LogoLaravel,
+  },
+  BOOTSTRAP: {
+    name: "Bootstrap",
+    class: "bg-[#3a3654] text-white",
+    icon: LogoBotstrap,
+  },
+};
+
+const PROJECTS = [
+  {
+    title: "Pokedex - Lista de Pokémon con JavaScript, HTML y CSS",
+    description:
+      "Pokedex con más de 100 Pokémon.Creado con JavaScript, HTML y CSS.",
+    link: "https://pokedex-2024-1.netlify.app/",
+    github: "https://github.com/Josset2912/Pokedex",
+    image: "/projects/pokedex.webp",
+    tags: [TAGS.JS, TAGS.HTML, TAGS.CSS],
+  },
+  {
+    title: "Buscador de IP - Geolocalización de IP con JavaScript",
+    description:
+      "Buscador de IP con geolocalización. Creado con JavaScript, HTML y CSS. Utiliza la API de IP Geolocation.",
+    link: "https://buscador-ip-2024.netlify.app/",
+    github: "https://github.com/Josset2912/BuscadorIp",
+    image: "/projects/ipp.png",
+    tags: [TAGS.JS, TAGS.HTML, TAGS.CSS],
+  },
+  {
+    title: "Sistema de registro de pacientes para Odontólogo",
+    description:
+      "Sistema de registro de pacientes para Odontólogo. Creado con PHP,SAAS y gestor de base de datos Mysql.",
+    github: "https://github.com/Josset2912/ProyectoUni",
+    image: "/projects/dental111.jpg",
+    tags: [TAGS.PHP, TAGS.LARAVEL, TAGS.BOOTSTRAP],
+  },
+  {
+    title: "Página de por el dia de San Valentin",
+    description:
+      " Página de por el dia de San Valentin. Creado con HTML, CSS y JavaScript.",
+    link: "https://sanvalentin2024-8.netlify.app/",
+    github: "https://github.com/Josset2912/SanValentin",
+    image: "/projects/san1.png",
+    tags: [TAGS.JS, TAGS.HTML, TAGS.CSS],
+  },
+];
+---
+
+<div class="container mx-auto px-4">
+  <div class="flex flex-col gap-y-4 sm:gap-y-6 md:gap-y-8 lg:gap-y-12">
+    {
+      PROJECTS.map(({ image, title, description, tags, link, github }) => (
+        <article class="flex flex-col gap-y-4 sm:gap-x-4 sm:gap-y-0 md:flex-row">
+          <div class="w-full">
+            <div class="relative flex flex-col items-center gap-4 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl group-hover:-translate-y-1 group-hover:shadow-2xl border border-gray-800 hover:border-gray-700 hover:bg-gray-800/50">
+              <img
+                alt="Descripción de la imagen"
+                class="object-cover object-top w-full h-48 sm:h-56 md:h-64 lg:h-72 transition duration-500 sm:scale-100 md:scale-110 group-hover:scale-105"
+                loading="lazy"
+                src={image}
+              />
+            </div>
+          </div>
+
+          <div class="w-full md:w-1/2 md:max-w-lg">
+            <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-100">
+              {title}
+            </h3>
+            <div class="flex flex-wrap mt-2">
+              <ul class="flex flex-wrap gap-x-2 gap-y-1">
+                {tags.map((tag) => (
+                  <li>
+                    <span
+                      class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+                    >
+                      <tag.icon class="size-4" />
+                      {tag.name}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <div class="mt-2 text-gray-700 dark:text-gray-400">
+                {description}
+              </div>
+              <footer class="flex flex-wrap items-end justify-start mt-4 gap-x-2 gap-y-2">
+                {github && (
+                  <LinkButton href={github}>
+                    <GitHub class="size-6" />
+                    Code
+                  </LinkButton>
+                )}
+                {link && (
+                  <LinkButton href={link}>
+                    <Link class="size-4" />
+                    Preview
+                  </LinkButton>
+                )}
+              </footer>
+            </div>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</div>

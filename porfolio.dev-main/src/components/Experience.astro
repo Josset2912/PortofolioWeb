@@ -1,0 +1,36 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+const EXPERIENCE = [
+  {
+    date: "Abril - Agosto 2024",
+    title: "Practicante Pre Profesional- Asistente de Ciencia de Datos",
+    company: "NAAL CORPORATION SAC",
+    description:
+      "Realicé mis tareas con un enfoque proactivo y autónomo, demostrando responsabilidad y ética profesional en todas las etapas del proceso de análisis de datos. Implementación de un sistema de gestión de proyectos de TI.",
+  },
+  {
+    date: "Agosto 2022 - Junio 2023",
+    title: "Soporte Técnico y Mesa de Ayuda",
+    company: "Universidad Católica Sedes Sapientiae",
+    description:
+      "Facilité talleres sobre nuevas tecnologías, logrando un incremento del 40% en la adopción de herramientasdigitales por parte del personal. Implementé un sistema de gestión de tickets que redujo el tiempo de respuesta en un 20%, mejorando la satisfacción del usuario. ",
+  },
+  {
+    date: "Enero - Diciembre 2019",
+    title: "Asesor de Proyectos de TI",
+    company: "Universidad San Pedro",
+    description:
+      "Coordiné y lideré la capacitación de 30 docentes, incrementando su eficiencia en el manejo de DINACONCYTEC en un 50%. Lideré la formación y capacitación de docentes, mejorando sus habilidades y gestionando su información en DINA-CONCYTEC.",
+  },
+];
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>
